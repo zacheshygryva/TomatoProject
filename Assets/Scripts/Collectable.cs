@@ -8,7 +8,7 @@ public class Collectable : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider) {
 		Tomato tomato = collider.GetComponent<Tomato>();
 		if (tomato != null) {
-			LevelController.instance.score += value;
+			LevelController.instance.TomatoScored();
 			Destroy (this.gameObject);
 		}
 	}
