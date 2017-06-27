@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelController : MonoBehaviour {
 	public static LevelController instance;
 	public int score = 0;                      
-	public bool gameOver = false;
+	public bool gameOver = true;
 
 	public float scrollSpeed = -1.5f;
 
