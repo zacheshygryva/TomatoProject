@@ -30,10 +30,15 @@ public class LevelController : MonoBehaviour {
 	public void TomatoScored() {
 		if (gameOver) return;
 		++score;
-		scoreText.text = "бал: " + score.ToString();
+		scoreText.text = "score: " + score.ToString();
 	}
 
 	public void TomatoCrushed() {
+		gameOverText.enabled = true;
+		gameOver = true;
+	}
+
+	public void Highscore() {
 		gameOverText.enabled = true;
 		gameOver = true;
 	}
