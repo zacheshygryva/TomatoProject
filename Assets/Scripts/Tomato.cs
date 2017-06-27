@@ -25,10 +25,11 @@ public class Tomato : MonoBehaviour {
 			animator.SetBool("down", true);
 		}
 
-		if (dead)
+		if (dead && wait > 0)
 			wait -= Time.deltaTime;
-		else
-			if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0)) {
+		else if (dead)
+			animator.SetBool("death", true);
+		else if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0)) {
 				myBody.velocity = Vector2.zero;
 				myBody.AddForce(new Vector2(0, jump));
 			}
@@ -40,8 +41,14 @@ public class Tomato : MonoBehaviour {
 	}
 
 	void die() {
+		if (!dead) {
+			Vector2 vel = myBody.velocity;
+			vel.x = 1;
+			vel.y = 4;
+			myBody.velocity = vel;
+		}
 		animator.SetBool("hit", true);
-		wait += 1.5f;
+		wait += 0.5f;
 		dead = true;
 		LevelController.instance.TomatoCrushed();
 	}

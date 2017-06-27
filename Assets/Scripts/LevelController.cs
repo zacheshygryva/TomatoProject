@@ -28,9 +28,8 @@ public class LevelController : MonoBehaviour {
 	}
 
 	public void TomatoScored() {
-		if (gameOver)   
-			return;
-		score++;
+		if (gameOver) return;
+		++score;
 		scoreText.text = "бал: " + score.ToString();
 	}
 
